@@ -1,0 +1,45 @@
+from bs4 import BeautifulSoup as soup  # HTML data structure
+from urllib.request import urlopen as uReq  # Web client
+import sys
+
+# URl to web scrap from.
+# in this example we web scrap graphics cards from Newegg.com
+
+input_link = input("Enter link (starting with https://):          ")
+page_url = input_link
+
+# opens the connection and downloads html page from url
+uClient = uReq(page_url)
+
+# parses html into a soup data structure to traverse html
+# as if it were a json data type.
+page_soup = soup(uClient.read(), "html.parser")
+uClient.close()
+
+out_filename = "wiki data.txt"
+f = open(out_filename, "w")
+page_soup.h1.text
+page_soup.img["src"]
+page_soup.find(id="mw-normal-catlinks").text
+# page_soup.p.text.replace("\xa0", " ").strip()
+
+para = page_soup.p
+para.find_next_siblings("p")[0].text
+para.find_next_siblings("p")[1].text
+para.find_next_siblings("p")[2].text
+para.find_next_siblings("p")[3].text
+
+page_soup.findAll("a", {"class": "external text"})
+
+f.write(page_soup.h1.text + "\n" + "\n")
+f.write("https:" + page_soup.img["src"])
+f.write("\n" + "\n" + page_soup.find(id="mw-normal-catlinks").text + "\n" + "\n")
+f.write(para.find_next_siblings("p")[0].text + "\n")
+f.write(para.find_next_siblings("p")[1].text + "\n")
+f.write(para.find_next_siblings("p")[2].text + "\n")
+f.write(para.find_next_siblings("p")[3].text + "\n")
+# f.write(page_soup.findAll("a", {"class": "external text"}) + "\n")
+
+f.close()
+print("\n")
+print ("text file named 'wiki data.txt' has been created")
