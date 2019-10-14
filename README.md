@@ -1,6 +1,8 @@
 # wikipedia_scrapper
 A web scraper python script which can be used to scrape data from simple.wiki extensions
 
+Dependencies required: BeautifulSoup bs4
+
 Websites used for references:
 
     shorturl.at/pHKZ7 
