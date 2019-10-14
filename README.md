@@ -7,4 +7,4 @@ Websites used for references:
     https://www.crummy.com/software/BeautifulSoup/bs4/doc/
     https://www.youtube.com/watch?v=XQgXKtPSzUI
     
-The format choosen can be seen in the image     
+The format choosen can be seen in the image named 'format_for_recommendation'
