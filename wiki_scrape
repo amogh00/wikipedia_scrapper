@@ -5,8 +5,10 @@ import sys
 # URl to web scrap from.
 # in this example we web scrap graphics cards from Newegg.com
 
-input_link = input("Enter link (starting with https://):          ")
-page_url = input_link
+topic_name = input("Enter a topic name: ")
+if (' ' in  topic_name == True):
+	topic_name.replace(" ", "_")
+page_url = "https://simple.wikipedia.org/wiki/" + topic_name
 
 # opens the connection and downloads html page from url
 uClient = uReq(page_url)
